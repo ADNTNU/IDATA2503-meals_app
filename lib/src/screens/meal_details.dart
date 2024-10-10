@@ -7,6 +7,17 @@ class MealDetailsScreen extends StatelessWidget {
   const MealDetailsScreen({super.key, required this.meal});
 
   final Meal meal;
+  void _toggleFavorite(BuildContext context, isFavorite) {
+    Provider.of<FavoritesState>(context, listen: false).toggleFavorite(meal);
+    final snackBar = SnackBar(
+      content: Text(isFavorite
+          ? 'Meal removed from favorites'
+          : 'Meal added to favorites'),
+      duration: const Duration(seconds: 2),
+    );
+    ScaffoldMessenger.of(context).clearSnackBars();
+    ScaffoldMessenger.of(context).showSnackBar(snackBar);
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -16,8 +27,7 @@ class MealDetailsScreen extends StatelessWidget {
         title: Text(meal.title),
         actions: [
           IconButton(
-            onPressed: () => Provider.of<FavoritesState>(context, listen: false)
-                .toggleFavorite(meal),
+            onPressed: () => _toggleFavorite(context, isFavorite),
             icon: Icon(isFavorite ? Icons.star : Icons.star_border),
           ),
         ],
