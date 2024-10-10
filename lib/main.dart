@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:meals_app/src/states/favorites_state.dart';
+import 'package:meals_app/src/states/filters_state.dart';
+import 'package:provider/provider.dart';
 
 import 'package:google_fonts/google_fonts.dart';
 import 'package:meals_app/src/screens/tabs.dart';
@@ -13,7 +16,15 @@ final theme = ThemeData(
 );
 
 void main() {
-  runApp(const App());
+  runApp(
+    MultiProvider(
+      providers: [
+        ChangeNotifierProvider(create: (_) => FiltersState()),
+        ChangeNotifierProvider(create: (_) => FavoritesState()),
+      ],
+      child: const App(),
+    ),
+  );
 }
 
 class App extends StatelessWidget {

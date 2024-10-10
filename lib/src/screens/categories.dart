@@ -1,22 +1,26 @@
 import 'package:flutter/material.dart';
 import 'package:meals_app/src/data/dummy_data.dart';
 import 'package:meals_app/src/models/category.dart';
-import 'package:meals_app/src/models/meal.dart';
+import 'package:meals_app/src/models/filter.dart';
 import 'package:meals_app/src/screens/meals.dart';
+import 'package:meals_app/src/states/filters_state.dart';
 import 'package:meals_app/src/widgets/category_grid_item.dart';
+import 'package:provider/provider.dart';
 
 class CategoriesScreen extends StatelessWidget {
-  const CategoriesScreen(
-      {super.key,
-      required this.onToggleFavorite,
-      required this.availableMeals});
+  const CategoriesScreen({
+    super.key,
+  });
 
-  final void Function(Meal meal) onToggleFavorite;
-  final List<Meal> availableMeals;
-
-  void _selectCategory(BuildContext context, Category category) {
-    final filteredMeals = availableMeals
-        .where((meal) => meal.categories.contains(category.id))
+  void _selectCategory(
+      BuildContext context, Map<Filter, bool> filters, Category category) {
+    final filteredMeals = dummyMeals
+        .where((meal) =>
+            meal.categories.contains(category.id) &&
+            (!filters[Filter.glutenFree]! || meal.isGlutenFree) &&
+            (!filters[Filter.lactoseFree]! || meal.isLactoseFree) &&
+            (!filters[Filter.vegetarian]! || meal.isVegetarian) &&
+            (!filters[Filter.vegan]! || meal.isVegan))
         .toList();
 
     Navigator.of(context).push(
@@ -25,7 +29,6 @@ class CategoriesScreen extends StatelessWidget {
           return MealsScreen(
             title: 'Meals',
             meals: filteredMeals,
-            onToggleFavorite: onToggleFavorite,
           );
         },
       ),
@@ -34,6 +37,8 @@ class CategoriesScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final Map<Filter, bool> filters =
+        Provider.of<FiltersState>(context).selectedFilters;
     return GridView(
         padding: const EdgeInsets.all(24),
         gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
@@ -45,7 +50,8 @@ class CategoriesScreen extends StatelessWidget {
         children: availableCategories
             .map((category) => CategoryGridItem(
                 category: category,
-                onSelectCategory: () => _selectCategory(context, category)))
+                onSelectCategory: () =>
+                    _selectCategory(context, filters, category)))
             .toList());
   }
 }
