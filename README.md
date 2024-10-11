@@ -207,13 +207,12 @@ StatelessWidget <|-- MainDrawer
 
 Images of finished app.
 
-![Homepage](doc/homepage.png)
-![Sidemenu](doc/sidemenu.png)
-![Filters](doc/filters.png)
-![Category](doc/category.png)
-![MenuItem](doc/menuItem.png)
-![MenuItemSave](doc/menuItemSave.png)
-![Favorites](doc/favorites.png)
+<img src="doc/homepage.png" alt="Homepage" width="300"/><img src="doc/sidemenu.png" alt="Sidemenu" width="300"/>
+<img src="doc/filters.png" alt="Filters" width="300"/>
+<img src="doc/category.png" alt="Category" width="300"/>
+<img src="doc/menuItem.png" alt="MenuItem" width="300"/>
+<img src="doc/menuItemSave.png" alt="MenuItemSave" width="300"/>
+<img src="doc/favorites.png" alt="Favorites" width="300"/>
 
 ## Video
 
