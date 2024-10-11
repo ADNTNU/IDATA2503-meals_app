@@ -221,7 +221,8 @@ Images of finished app.
 
 ## Collabriation
 
-Both Anders and Daniel finished the Udemy course separately, but Anders pushed to the Repository.
-We talk over Discord to find a extra feature to be added, that was not to easy or obvious.
-We ended up with a way to randomly select a meal, if the user has a hard time choosing for themself.
+Both Anders and Daniel finished the Udemy course separately.
+We had a meeting over Discord to find extra features to be added, that was not to easy or obvious.
+We agreed that the state handling that was added in the course was suboptimal so we decided to reimplement it with the provider package. By using provider we could have a central place for the states and then get/update this state from anywhere in the app.
+We ended up with a way to randomly select a meal, if the user has a hard time choosing for themself, as the extra feature. The button to find the random meal is in the top right of the tabs screen.
 When we were both happy with the app, we discussed what to write in our documentation, and then wrote it together while talking over discord.
