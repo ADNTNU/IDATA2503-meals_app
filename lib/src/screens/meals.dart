@@ -3,6 +3,9 @@ import 'package:meals_app/src/models/meal.dart';
 import 'package:meals_app/src/screens/meal_details.dart';
 import 'package:meals_app/src/widgets/meal_item.dart';
 
+/// The screen that displays the list of meals.
+/// Can be used to display meals in favorites or meals filtered by category.
+/// Displays a message if there are no meals to display.
 class MealsScreen extends StatelessWidget {
   const MealsScreen({super.key, this.title, required this.meals});
 
@@ -11,6 +14,7 @@ class MealsScreen extends StatelessWidget {
 
   static const routeName = '/meals';
 
+  /// Navigates to the [MealDetailsScreen] when a meal is selected.
   void onMealSelected(BuildContext context, Meal meal) {
     Navigator.of(context).push(MaterialPageRoute(
         builder: (context) => MealDetailsScreen(

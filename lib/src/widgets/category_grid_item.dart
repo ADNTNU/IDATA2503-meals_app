@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:meals_app/src/models/category.dart';
 
+/// A grid item for a category.
+/// Displays the category as a card with a gradient background.
 class CategoryGridItem extends StatelessWidget {
   const CategoryGridItem(
       {super.key, required this.category, required this.onSelectCategory});

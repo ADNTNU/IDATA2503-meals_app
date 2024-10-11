@@ -3,10 +3,15 @@ import 'package:meals_app/src/models/meal.dart';
 import 'package:meals_app/src/states/favorites_state.dart';
 import 'package:provider/provider.dart';
 
+/// The screen that displays the details of a meal.
+/// Allows the user to view the ingredients and steps to prepare the meal.
+/// Also allows the user to add or remove the meal from favorites.
 class MealDetailsScreen extends StatelessWidget {
   const MealDetailsScreen({super.key, required this.meal});
 
   final Meal meal;
+
+  /// Toggles the favorite status of the meal using the [FavoritesState].
   void _toggleFavorite(BuildContext context, isFavorite) {
     Provider.of<FavoritesState>(context, listen: false).toggleFavorite(meal);
     final snackBar = SnackBar(

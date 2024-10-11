@@ -3,6 +3,7 @@ import 'package:meals_app/src/models/filter.dart';
 import 'package:meals_app/src/states/filters_state.dart';
 import 'package:provider/provider.dart';
 
+/// The screen that displays the available filters.
 class FiltersScreen extends StatelessWidget {
   const FiltersScreen({super.key});
 

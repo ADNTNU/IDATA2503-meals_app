@@ -7,11 +7,15 @@ import 'package:meals_app/src/states/filters_state.dart';
 import 'package:meals_app/src/widgets/category_grid_item.dart';
 import 'package:provider/provider.dart';
 
+/// The screen that displays the available categories.
+/// Allows the user to select a category to view the meals in that category.
 class CategoriesScreen extends StatelessWidget {
   const CategoriesScreen({
     super.key,
   });
 
+  /// Filters the meals based on the selected category and filters and navigates
+  /// to the [MealsScreen] to display the filtered meals.
   void _selectCategory(
       BuildContext context, Map<Filter, bool> filters, Category category) {
     final filteredMeals = dummyMeals

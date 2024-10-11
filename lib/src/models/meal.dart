@@ -1,15 +1,21 @@
+/// Enum for Complexity
 enum Complexity {
   simple,
   challenging,
   hard,
 }
 
+/// Enum for Affordability
 enum Affordability {
   affordable,
   pricey,
   luxurious,
 }
 
+/// Represents a meal.
+/// Has an [id], [categories], [title], [imageUrl], [ingredients], [steps],
+/// [duration], [complexity], [affordability], [isGlutenFree], [isLactoseFree],
+/// [isVegan], and [isVegetarian].
 class Meal {
   const Meal({
     required this.id,

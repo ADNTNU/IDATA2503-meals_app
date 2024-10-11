@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:meals_app/src/models/tab_screens.dart';
 
+/// The main drawer for the app.
+/// Allows the user to navigate to the meals and filters screens.
 class MainDrawer extends StatelessWidget {
   const MainDrawer({super.key, required this.onSelectScreen});
 

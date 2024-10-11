@@ -3,6 +3,9 @@ import 'package:meals_app/src/models/meal.dart';
 import 'package:meals_app/src/widgets/meal_item_trait.dart';
 import 'package:transparent_image/transparent_image.dart';
 
+/// A meal item.
+/// Displays a card with an image and information about the meal.
+/// The meal can be selected by tapping on the card.
 class MealItem extends StatelessWidget {
   const MealItem({super.key, required this.meal, required this.onMealSelected});
 

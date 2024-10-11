@@ -15,6 +15,9 @@ final theme = ThemeData(
   textTheme: GoogleFonts.latoTextTheme(),
 );
 
+/// The entry point for the app.
+/// Initializes the app and sets the theme.
+/// Also provides the state management for the filters and favorites.
 void main() {
   runApp(
     MultiProvider(

@@ -12,8 +12,10 @@ import 'package:meals_app/src/states/filters_state.dart';
 import 'package:meals_app/src/widgets/main_drawer.dart';
 import 'package:provider/provider.dart';
 
+/// Enum representing the tabs in the app.
 enum Tabs { categories, favorites }
 
+/// Extension on [Tabs] to get the index of the tab.
 extension TabsExtension on Tabs {
   int get index {
     switch (this) {
@@ -25,6 +27,9 @@ extension TabsExtension on Tabs {
   }
 }
 
+/// The screen that displays the main tabs in the app.
+/// Allows the user to switch between the categories and favorites tabs.
+/// Also allows the user to open the filters screen and select a random meal.
 class TabsScreen extends StatefulWidget {
   const TabsScreen({super.key});
 
@@ -32,15 +37,18 @@ class TabsScreen extends StatefulWidget {
   State<TabsScreen> createState() => _TabsScreenState();
 }
 
+/// The state for the [TabsScreen].
 class _TabsScreenState extends State<TabsScreen> {
   Tabs _selectedTab = Tabs.categories;
 
+  /// Sets the selected tab based on the index.
   void _setTab(int tabIndex) {
     setState(() {
       _selectedTab = Tabs.values[tabIndex];
     });
   }
 
+  /// Sets the screen based on the selected screen.
   void _setScreen(Screens screen) {
     Navigator.of(context).pop();
     if (screen == Screens.filters) {
@@ -49,6 +57,7 @@ class _TabsScreenState extends State<TabsScreen> {
     }
   }
 
+  /// Opens a random meal based on the selected filters.
   void _openRandomMeal(BuildContext context, Map<Filter, bool> filters) {
     List<Meal> filteredMeals = dummyMeals
         .where((meal) =>

@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+/// Represents a category of meals.
+/// Has an [id], a [title], and a [color].
 class Category {
   const Category({
     required this.id,
