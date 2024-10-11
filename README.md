@@ -215,7 +215,7 @@ Images of finished app.
 <img src="doc/favorites.png" alt="Favorites" width="300"/>
 
 ## Video
-
+The video can be downloaded from the repo:
 [App video](doc/Meals%20app%20video.mp4)
 
 ## Collabriation
